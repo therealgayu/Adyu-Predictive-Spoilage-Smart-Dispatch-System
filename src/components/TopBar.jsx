@@ -1,4 +1,5 @@
 import React from 'react';
+import { USE_MOCK } from '../services/predictService'; // adjust path based on actual folder structure
 
 /**
  * TopBar component for App Shell layout.
@@ -18,8 +19,8 @@ export default function TopBar({ title = 'Dashboard', subtitle }) {
       <div className="flex items-center gap-4">
         {/* Status indicator */}
         <div className="flex items-center gap-2 text-xs font-medium text-text-muted bg-background px-3 py-1.5 rounded-btn border border-slate-light">
-          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-          <span>System Active — Mock Mode</span>
+          <span className={`w-2 h-2 rounded-full animate-pulse ${USE_MOCK ? 'bg-amber-500' : 'bg-emerald-500'}`}></span>
+          <span>{USE_MOCK ? 'System Active — Mock Mode' : 'System Active — Live'}</span>
         </div>
 
         {/* Manager Avatar / Profile info */}
